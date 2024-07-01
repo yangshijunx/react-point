@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, Menu, theme } from "antd";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import SetState from "@/pages/setStates/index";
+import SuspenseComponent from "@/pages/suspense";
 
 const { Header, Content, Footer } = Layout;
 
@@ -17,9 +18,9 @@ const App: React.FC = () => {
       component: () => <SetState />,
     },
     {
-      path: "/list",
-      name: "List",
-      component: () => <div>list</div>,
+      path: "/suspense",
+      name: "suspense",
+      component: () => <SuspenseComponent />,
     },
   ];
   const createRoute = () => {
