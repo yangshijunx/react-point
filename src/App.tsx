@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, Menu, theme } from "antd";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import SetState from "@/pages/setStates/index";
 
 const { Header, Content, Footer } = Layout;
 
@@ -12,8 +13,8 @@ const App: React.FC = () => {
   const pages = [
     {
       path: "/",
-      name: "Home",
-      component: () => <div>home</div>,
+      name: "setState",
+      component: () => <SetState />,
     },
     {
       path: "/list",
