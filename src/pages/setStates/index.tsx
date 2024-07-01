@@ -3,6 +3,9 @@ import { useState } from "react";
 import { flushSync } from "react-dom";
 
 const SetState = () => {
+  // StrictMode 的设计初衷是为了提高开发过程中的开发者体验和代码质量，
+  // 通过额外的调用来帮助开发者尽早发现和修复潜在问题。
+  console.log("render");
   const [count, setCount] = useState(0);
 
   return (
