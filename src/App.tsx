@@ -1,6 +1,12 @@
 import React from "react";
 import { Layout, Menu, theme } from "antd";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import SetState from "@/pages/setStates/index";
 import SuspenseComponent from "@/pages/suspense";
 
@@ -23,54 +29,61 @@ const App: React.FC = () => {
       component: () => <SuspenseComponent />,
     },
   ];
+
   const createRoute = () => {
-    return pages.map((page, index) => {
+    return pages.map((page) => {
       return {
-        key: index + 1,
+        key: page.path,
         label: <Link to={page.path}>{page.name}</Link>,
       };
     });
   };
 
+  const location = useLocation();
+
   return (
-    <Router>
-      <Layout>
-        <Header style={{ display: "flex", alignItems: "center" }}>
-          <div className="demo-logo" />
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={["1"]}
-            items={createRoute()}
-            style={{ flex: 1, minWidth: 0 }}
-          />
-        </Header>
-        <Content style={{ padding: "0 48px" }}>
-          <div
-            style={{
-              background: colorBgContainer,
-              minHeight: 280,
-              padding: 24,
-              borderRadius: borderRadiusLG,
-            }}
-          >
-            <Routes>
-              {pages.map((item) => (
-                <Route
-                  key={item.name}
-                  path={`${item.path}`}
-                  element={<item.component />}
-                />
-              ))}
-            </Routes>
-          </div>
-        </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
-      </Layout>
-    </Router>
+    <Layout>
+      <Header style={{ display: "flex", alignItems: "center" }}>
+        <div className="demo-logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          selectedKeys={[location.pathname]}
+          items={createRoute()}
+          style={{ flex: 1, minWidth: 0 }}
+        />
+      </Header>
+      <Content style={{ padding: "0 48px" }}>
+        <div
+          style={{
+            background: colorBgContainer,
+            minHeight: 280,
+            padding: 24,
+            borderRadius: borderRadiusLG,
+          }}
+        >
+          <Routes>
+            {pages.map((item) => (
+              <Route
+                key={item.name}
+                path={item.path}
+                element={<item.component />}
+              />
+            ))}
+          </Routes>
+        </div>
+      </Content>
+      <Footer style={{ textAlign: "center" }}>
+        Ant Design ©{new Date().getFullYear()} Created by Ant UED
+      </Footer>
+    </Layout>
   );
 };
 
-export default App;
+const MainApp: React.FC = () => (
+  <Router>
+    <App />
+  </Router>
+);
+
+export default MainApp;
