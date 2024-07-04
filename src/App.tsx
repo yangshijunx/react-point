@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import SetState from "@/pages/setStates/index";
 import SuspenseComponent from "@/pages/suspense";
+import ComponentsCommunication from "./pages/componentCommunication";
 
 const { Header, Content, Footer } = Layout;
 
@@ -27,6 +28,11 @@ const App: React.FC = () => {
       path: "/suspense",
       name: "suspense",
       component: () => <SuspenseComponent />,
+    },
+    {
+      path: "/component-communication",
+      name: "组件通讯",
+      component: () => <ComponentsCommunication />,
     },
   ];
 
