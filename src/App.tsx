@@ -10,6 +10,7 @@ import {
 import SetState from "@/pages/setStates/index";
 import SuspenseComponent from "@/pages/suspense";
 import ComponentsCommunication from "./pages/componentCommunication";
+import UseSyncExternalStore from "@/pages/useSyncExternalStore";
 
 const { Header, Content, Footer } = Layout;
 
@@ -33,6 +34,11 @@ const App: React.FC = () => {
       path: "/component-communication",
       name: "组件通讯",
       component: () => <ComponentsCommunication />,
+    },
+    {
+      path: "/useSyncExternalStore",
+      name: "订阅外部变更",
+      component: () => <UseSyncExternalStore />,
     },
   ];
 
