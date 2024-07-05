@@ -13,7 +13,7 @@ const SetState = () => {
   ) => {
     switch (action.type) {
       case "double":
-        return { count: state.count * 2 };
+        return { ...state, count: state.count * 2 };
       default:
         throw new Error();
     }
