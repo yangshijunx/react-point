@@ -1,18 +1,41 @@
 import { Button } from "antd";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { flushSync } from "react-dom";
 
 const SetState = () => {
   // StrictMode 的设计初衷是为了提高开发过程中的开发者体验和代码质量，
   // 通过额外的调用来帮助开发者尽早发现和修复潜在问题。
   console.log("render");
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
+  const countStateReducer = (
+    state: { count: number },
+    action: { type: string }
+  ) => {
+    switch (action.type) {
+      case "double":
+        return { count: state.count * 2 };
+      default:
+        throw new Error();
+    }
+  };
+  const [countState, dispatchCountState] = useReducer(countStateReducer, {
+    count: count,
+  });
 
   return (
     <>
       <p>{count}</p>
+      <span>reducer:{countState.count}</span>
       <Button type="primary" onClick={() => setCount(count + 1)}>
         +1
+      </Button>
+      <Button
+        type="primary"
+        onClick={() => {
+          dispatchCountState({ type: "double" });
+        }}
+      >
+        double
       </Button>
       <Button
         type="primary"
