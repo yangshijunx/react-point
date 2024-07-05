@@ -1,12 +1,14 @@
 import { Button, Card, Col, Row } from "antd";
+import ParentChild from "./parentChild";
 
 interface IProps {
   number: number;
   setNum: (number: number) => void;
+  children?: React.ReactNode;
 }
 
-const ChildList = (pros: IProps) => {
-  const { number, setNum } = pros;
+const ChildList = (props: IProps) => {
+  const { number, setNum, children } = props;
   return (
     <div>
       <span style={{ color: "red", fontSize: "20px" }}>子组件</span>
@@ -17,9 +19,14 @@ const ChildList = (pros: IProps) => {
             <Button onClick={() => setNum(number + 1)} type="primary">
               点击+1
             </Button>
+            {children}
           </Card>
         </Col>
-        <Col span={12}>col-12</Col>
+        <Col span={12}>
+          <Card title={false} bordered={false} style={{ width: "100%" }}>
+            <ParentChild />
+          </Card>
+        </Col>
       </Row>
     </div>
   );
