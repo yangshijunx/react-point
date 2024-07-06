@@ -12,6 +12,7 @@ import SuspenseComponent from "@/pages/suspense";
 import ComponentsCommunication from "./pages/componentCommunication";
 import UseSyncExternalStore from "@/pages/useSyncExternalStore";
 import UseTransition from "@/pages/useTransition";
+import UseEffect from "./pages/useEffect";
 
 const { Header, Content, Footer } = Layout;
 
@@ -45,6 +46,11 @@ const App: React.FC = () => {
       path: "/useTransition",
       name: "过渡任务",
       component: () => <UseTransition />,
+    },
+    {
+      path: "/useEffect",
+      name: "useEffect",
+      component: () => <UseEffect />,
     },
   ];
 
