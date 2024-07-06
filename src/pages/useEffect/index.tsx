@@ -54,6 +54,7 @@ const UseEffect: React.FC = () => {
     // 在严格模式下（React.StrictMode），React 会在开发环境中有意双调用（mount 和 unmount）组件的生命周期方法和副作用，
     // 以帮助开发者发现意外的副作用。这是为了确保副作用逻辑是幂等的（即多次调用不会产生副作用）。
     // 添加样式
+    // 只应该用于处理scc in js部分
     const style = document.createElement("style");
     style.innerHTML = `
       body {

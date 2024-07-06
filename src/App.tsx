@@ -13,6 +13,7 @@ import ComponentsCommunication from "./pages/componentCommunication";
 import UseSyncExternalStore from "@/pages/useSyncExternalStore";
 import UseTransition from "@/pages/useTransition";
 import UseEffect from "./pages/useEffect";
+import RefComponent from "@/pages/ref";
 
 const { Header, Content, Footer } = Layout;
 
@@ -51,6 +52,11 @@ const App: React.FC = () => {
       path: "/useEffect",
       name: "useEffect",
       component: () => <UseEffect />,
+    },
+    {
+      path: "/ref",
+      name: "ref",
+      component: () => <RefComponent />,
     },
   ];
 
