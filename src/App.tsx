@@ -14,6 +14,7 @@ import UseSyncExternalStore from "@/pages/useSyncExternalStore";
 import UseTransition from "@/pages/useTransition";
 import UseEffect from "./pages/useEffect";
 import RefComponent from "@/pages/ref";
+import UseMemoComponent from "./pages/usememo";
 
 const { Header, Content, Footer } = Layout;
 
@@ -57,6 +58,11 @@ const App: React.FC = () => {
       path: "/ref",
       name: "ref",
       component: () => <RefComponent />,
+    },
+    {
+      path: "/useMemo",
+      name: "useMemo",
+      component: () => <UseMemoComponent />,
     },
   ];
 
