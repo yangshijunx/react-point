@@ -11,6 +11,7 @@ import SetState from "@/pages/setStates/index";
 import SuspenseComponent from "@/pages/suspense";
 import ComponentsCommunication from "./pages/componentCommunication";
 import UseSyncExternalStore from "@/pages/useSyncExternalStore";
+import UseTransition from "@/pages/useTransition";
 
 const { Header, Content, Footer } = Layout;
 
@@ -39,6 +40,11 @@ const App: React.FC = () => {
       path: "/useSyncExternalStore",
       name: "订阅外部变更",
       component: () => <UseSyncExternalStore />,
+    },
+    {
+      path: "/useTransition",
+      name: "过渡任务",
+      component: () => <UseTransition />,
     },
   ];
 
