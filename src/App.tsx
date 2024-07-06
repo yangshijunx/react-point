@@ -15,6 +15,7 @@ import UseTransition from "@/pages/useTransition";
 import UseEffect from "./pages/useEffect";
 import RefComponent from "@/pages/ref";
 import UseMemoComponent from "./pages/usememo";
+import UseCallBackComponent from "./pages/useCallback";
 
 const { Header, Content, Footer } = Layout;
 
@@ -63,6 +64,11 @@ const App: React.FC = () => {
       path: "/useMemo",
       name: "useMemo",
       component: () => <UseMemoComponent />,
+    },
+    {
+      path: "/useCallback",
+      name: "useCallback",
+      component: () => <UseCallBackComponent />,
     },
   ];
 
