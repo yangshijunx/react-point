@@ -22,11 +22,20 @@ const SetState = () => {
     count: count,
   });
 
+  const addCount = () => {
+    console.log("addCountbefore", count);
+    flushSync(() => {
+      setCount(count + 1);
+    });
+    setCount(count + 1);
+    console.log("addCountafter", count);
+  };
+
   return (
     <>
       <p>{count}</p>
       <span>reducer:{countState.count}</span>
-      <Button type="primary" onClick={() => setCount(count + 1)}>
+      <Button type="primary" onClick={addCount}>
         +1
       </Button>
       <Button
