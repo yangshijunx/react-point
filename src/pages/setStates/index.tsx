@@ -7,6 +7,7 @@ const SetState = () => {
   // 通过额外的调用来帮助开发者尽早发现和修复潜在问题。
   console.log("render");
   const [count, setCount] = useState(1);
+  const [person, setPerson] = useState({ name: "zhangsan" });
   const countStateReducer = (
     state: { count: number },
     action: { type: string }
@@ -31,10 +32,24 @@ const SetState = () => {
     console.log("addCountafter", count);
   };
 
+  const editPerson = () => {
+    // 这样写默认react会认为前后没有变化 因为 person指向一个相同的地址
+    person.name = "lisi";
+    // setPerson(person);
+
+    // 这样写react会认为前后有变化 因为person指向一个新的地址
+    setPerson({ ...person });
+  };
+
   return (
     <>
+      <p>name: {person.name}</p>
       <p>{count}</p>
       <span>reducer:{countState.count}</span>
+
+      <Button type="primary" onClick={editPerson}>
+        修改姓名
+      </Button>
       <Button type="primary" onClick={addCount}>
         +1
       </Button>
