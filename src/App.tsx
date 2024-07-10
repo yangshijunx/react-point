@@ -16,6 +16,8 @@ import UseEffect from "./pages/useEffect";
 import RefComponent from "@/pages/ref";
 import UseMemoComponent from "./pages/usememo";
 import UseCallBackComponent from "./pages/useCallback";
+import Jsxdemo from "./pages/jsxdemo";
+import MyClassComponent from "./pages/classComponent";
 
 const { Header, Content, Footer } = Layout;
 
@@ -69,6 +71,18 @@ const App: React.FC = () => {
       path: "/useCallback",
       name: "useCallback",
       component: () => <UseCallBackComponent />,
+    },
+    {
+      path: "/jsxdemo",
+      name: "jsxdemo",
+      component: () => <Jsxdemo />,
+    },
+    {
+      path: "/classComponent",
+      name: "classComponent",
+      component: () => {
+        return <MyClassComponent name="类组件" />;
+      },
     },
   ];
 
