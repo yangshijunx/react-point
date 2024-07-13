@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 const UseMemoComponent = () => {
   const [number1, setNumber1] = useState(0);
   const [number2, setNumber2] = useState(0);
-  // 测试
 
   useEffect(() => {
     console.log("usememo useEffect is called");
