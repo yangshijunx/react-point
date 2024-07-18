@@ -41,6 +41,16 @@ const SetState = () => {
     setPerson({ ...person });
   };
 
+  const testSetTimeout = () => {
+    console.log("testSetTimeout");
+    setTimeout(() => {
+      // react 18 与 之前的版本不一致
+      console.log("setTimeout before", count);
+      setCount(count + 1);
+      console.log("setTimeout after", count);
+    }, 0);
+  };
+
   return (
     <>
       <p>name: {person.name}</p>
@@ -79,10 +89,6 @@ const SetState = () => {
           console.log("count", count);
           setCount((pre) => pre + 1);
           console.log("count+1", count);
-          setTimeout(() => {
-            // react18 全部批处理？ 全是异步？
-            console.log("count+1 ---> settimeout", count);
-          }, 0);
           setCount((pre) => pre + 1);
           console.log("count+2", count);
           setCount((pre) => pre + 1);
@@ -109,6 +115,10 @@ const SetState = () => {
         }}
       >
         flushSync不要批量处理+3
+      </Button>
+      {/* 测试settimeout是同步还是异步 */}
+      <Button type="primary" onClick={testSetTimeout}>
+        setTimeout是同步还是异步
       </Button>
     </>
   );
