@@ -76,9 +76,17 @@ const SetState = () => {
       <Button
         type="primary"
         onClick={() => {
+          console.log("count", count);
           setCount((pre) => pre + 1);
+          console.log("count+1", count);
+          setTimeout(() => {
+            // react18 全部批处理？ 全是异步？
+            console.log("count+1 ---> settimeout", count);
+          }, 0);
           setCount((pre) => pre + 1);
+          console.log("count+2", count);
           setCount((pre) => pre + 1);
+          console.log("count+3", count);
         }}
       >
         不要批量处理+3
@@ -100,7 +108,7 @@ const SetState = () => {
           });
         }}
       >
-        不要批量处理+3
+        flushSync不要批量处理+3
       </Button>
     </>
   );

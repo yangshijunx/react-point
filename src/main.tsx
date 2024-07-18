@@ -3,8 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
+// concurrent 模式
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
+// legacy 模式
+// ReactDOM.render(<App />, document.getElementById("root"));
