@@ -18,6 +18,7 @@ import UseMemoComponent from "./pages/usememo";
 import UseCallBackComponent from "./pages/useCallback";
 import Jsxdemo from "./pages/jsxdemo";
 import MyClassComponent from "./pages/classComponent";
+import AlgebraicEffect from "./pages/algebraicEffect";
 
 const { Header, Content, Footer } = Layout;
 
@@ -83,6 +84,11 @@ const App: React.FC = () => {
       component: () => {
         return <MyClassComponent name="类组件" />;
       },
+    },
+    {
+      path: "/algebraicEffect",
+      name: "代数效应",
+      component: () => <AlgebraicEffect />,
     },
   ];
 
