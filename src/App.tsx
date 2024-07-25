@@ -20,6 +20,7 @@ import Jsxdemo from "./pages/jsxdemo";
 import MyClassComponent from "./pages/classComponent";
 import AlgebraicEffect from "./pages/algebraicEffect";
 import HocComponent from "./pages/hoc";
+import TiledRender from "./pages/hoc2";
 
 const { Header, Content, Footer } = Layout;
 
@@ -31,8 +32,13 @@ const App: React.FC = () => {
   const pages = [
     {
       path: "/hoc",
-      name: "高阶组件",
+      name: "实现v-if高阶组件",
       component: () => <HocComponent message="hello word" vif />,
+    },
+    {
+      path: "/hoc2",
+      name: "实现分片渲染高阶组件",
+      component: () => <TiledRender visible={false} />,
     },
     {
       path: "/",
