@@ -9,8 +9,8 @@ const HocRender = <P extends object>(
 ): React.ComponentType<P & HocProps> => {
   return class extends React.Component<P & HocProps> {
     constructor(props: P & HocProps) {
-      console.log("constructor", props);
       super(props);
+      console.log("constructor", props);
     }
     render() {
       const { vif, ...restProps } = this.props as HocProps & P;
@@ -23,3 +23,5 @@ const HocRender = <P extends object>(
 };
 
 export default HocRender;
+// 导出类型
+export type { HocProps };
