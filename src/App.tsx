@@ -29,7 +29,11 @@ const App: React.FC = () => {
   } = theme.useToken();
 
   const pages = [
-    { path: "/hoc", name: "高阶组件", component: () => <HocComponent /> },
+    {
+      path: "/hoc",
+      name: "高阶组件",
+      component: () => <HocComponent message="hello word" vif />,
+    },
     {
       path: "/",
       name: "setState",

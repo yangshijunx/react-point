@@ -1,11 +1,23 @@
 import React from "react";
 
+interface HocProps {
+  vif: boolean;
+}
+
 const HocRender = <P extends object>(
   WrapComponent: React.ComponentType<P>
-): React.ComponentType<P> => {
-  return class extends React.Component<P> {
+): React.ComponentType<P & HocProps> => {
+  return class extends React.Component<P & HocProps> {
+    constructor(props: P & HocProps) {
+      console.log("constructor", props);
+      super(props);
+    }
     render() {
-      return <WrapComponent {...this.props} />;
+      const { vif, ...restProps } = this.props as HocProps & P;
+      if (!vif) {
+        return <>v-if设置为false了</>;
+      }
+      return <WrapComponent {...(restProps as P)} />;
     }
   };
 };
