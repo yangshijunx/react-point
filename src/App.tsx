@@ -19,6 +19,7 @@ import UseCallBackComponent from "./pages/useCallback";
 import Jsxdemo from "./pages/jsxdemo";
 import MyClassComponent from "./pages/classComponent";
 import AlgebraicEffect from "./pages/algebraicEffect";
+import HocComponent from "./pages/hoc";
 
 const { Header, Content, Footer } = Layout;
 
@@ -28,6 +29,7 @@ const App: React.FC = () => {
   } = theme.useToken();
 
   const pages = [
+    { path: "/hoc", name: "高阶组件", component: () => <HocComponent /> },
     {
       path: "/",
       name: "setState",
