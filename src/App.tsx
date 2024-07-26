@@ -21,6 +21,7 @@ import MyClassComponent from "./pages/classComponent";
 import AlgebraicEffect from "./pages/algebraicEffect";
 import HocComponent from "./pages/hoc";
 import TiledRender from "./pages/hoc2";
+import CustomHook from "./pages/customHook";
 
 const { Header, Content, Footer } = Layout;
 
@@ -30,6 +31,11 @@ const App: React.FC = () => {
   } = theme.useToken();
 
   const pages = [
+    {
+      path: "/custom-hook",
+      name: "自定义hook",
+      component: () => <CustomHook />,
+    },
     {
       path: "/hoc",
       name: "实现v-if高阶组件",
