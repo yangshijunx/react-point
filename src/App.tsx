@@ -22,6 +22,7 @@ import AlgebraicEffect from "./pages/algebraicEffect";
 import HocComponent from "./pages/hoc";
 import TiledRender from "./pages/hoc2";
 import CustomHook from "./pages/customHook";
+import PureComponentTest from "./pages/pureComponent";
 
 const { Header, Content, Footer } = Layout;
 
@@ -31,6 +32,11 @@ const App: React.FC = () => {
   } = theme.useToken();
 
   const pages = [
+    {
+      path: "/pureComponent",
+      name: "PureComponent",
+      component: () => <PureComponentTest />,
+    },
     {
       path: "/custom-hook",
       name: "自定义hook",
