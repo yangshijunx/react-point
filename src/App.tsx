@@ -23,6 +23,7 @@ import HocComponent from "./pages/hoc";
 import TiledRender from "./pages/hoc2";
 import CustomHook from "./pages/customHook";
 import PureComponentTest from "./pages/pureComponent";
+import MemoIndex from "./pages/memo";
 
 const { Header, Content, Footer } = Layout;
 
@@ -32,6 +33,11 @@ const App: React.FC = () => {
   } = theme.useToken();
 
   const pages = [
+    {
+      path: "/memo",
+      name: "memo",
+      component: () => <MemoIndex />,
+    },
     {
       path: "/pureComponent",
       name: "PureComponent",
