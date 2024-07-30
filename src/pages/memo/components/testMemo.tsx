@@ -15,7 +15,7 @@ const TestMemo = React.memo(
     const [number, setNumber] = React.useState(0);
     return (
       <>
-        <div>TestMemo</div>
+        <div>TestMemo1</div>
         <div>props-name:{name}</div>
         <div>props-id:{id}</div>
         <div>state-number{number}</div>
