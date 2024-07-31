@@ -24,6 +24,7 @@ import TiledRender from "./pages/hoc2";
 import CustomHook from "./pages/customHook";
 import PureComponentTest from "./pages/pureComponent";
 import MemoIndex from "./pages/memo";
+import ForwardRef from "./pages/forwardref";
 
 const { Header, Content, Footer } = Layout;
 
@@ -33,6 +34,11 @@ const App: React.FC = () => {
   } = theme.useToken();
 
   const pages = [
+    {
+      path: "forwardRef",
+      name: "forwardRef",
+      component: () => <ForwardRef />,
+    },
     {
       path: "/memo",
       name: "memo",
