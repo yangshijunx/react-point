@@ -25,6 +25,7 @@ import CustomHook from "./pages/customHook";
 import PureComponentTest from "./pages/pureComponent";
 import MemoIndex from "./pages/memo";
 import ForwardRef from "./pages/forwardref";
+import LazyComponent from "./pages/lazy";
 
 const { Header, Content, Footer } = Layout;
 
@@ -35,7 +36,12 @@ const App: React.FC = () => {
 
   const pages = [
     {
-      path: "forwardRef",
+      path: "/lazy",
+      name: "lazy",
+      component: () => <LazyComponent />,
+    },
+    {
+      path: "/forwardRef",
       name: "forwardRef",
       component: () => <ForwardRef />,
     },
