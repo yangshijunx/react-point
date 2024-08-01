@@ -10,7 +10,7 @@ const MemoIndex = () => {
   //   editData 修改id+1
   const editData = () => setData({ ...data, id: data.id + 1 });
   return (
-    <div>
+    <div onClick={() => console.log("冒泡触发父组件点击")}>
       <h1>memo</h1>
       <p>父组件number: {number}</p>
       <TestMemo data={data} />
