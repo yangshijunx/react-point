@@ -26,6 +26,7 @@ import PureComponentTest from "./pages/pureComponent";
 import MemoIndex from "./pages/memo";
 import ForwardRef from "./pages/forwardref";
 import LazyComponent from "./pages/lazy";
+import TestHook from "./pages/hookTest";
 
 const { Header, Content, Footer } = Layout;
 
@@ -35,6 +36,11 @@ const App: React.FC = () => {
   } = theme.useToken();
 
   const pages = [
+    {
+      path: "/testhook",
+      name: "测试自定义hook",
+      component: () => <TestHook />,
+    },
     {
       path: "/lazy",
       name: "lazy",
