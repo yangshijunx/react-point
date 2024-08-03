@@ -16,7 +16,7 @@ const PostList: React.FC = () => {
       title: "New Post",
       content: "This is a new post",
     };
-    dispatch(addPost(newPost));
+    dispatch(addPost(newPost as Post) as any);
   };
 
   return (
