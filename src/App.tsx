@@ -27,6 +27,7 @@ import MemoIndex from "./pages/memo";
 import ForwardRef from "./pages/forwardref";
 import LazyComponent from "./pages/lazy";
 import TestHook from "./pages/hookTest";
+import ReduxTestComponent from "./pages/redux";
 
 const { Header, Content, Footer } = Layout;
 
@@ -36,6 +37,11 @@ const App: React.FC = () => {
   } = theme.useToken();
 
   const pages = [
+    {
+      path: "/redux",
+      name: "redux",
+      component: () => <ReduxTestComponent />,
+    },
     {
       path: "/testhook",
       name: "测试自定义hook",
