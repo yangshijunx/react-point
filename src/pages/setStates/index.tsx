@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { flushSync } from "react-dom";
 
 const SetState = () => {
@@ -8,6 +8,12 @@ const SetState = () => {
   console.log("render");
   const [count, setCount] = useState(1);
   const [person, setPerson] = useState({ name: "zhangsan" });
+  useEffect(() => {
+    // 实际上相当于 在更新阶段 这里并不会再次执行
+    setInterval(() => {
+      console.log("count 每秒加1", count);
+    }, 1000);
+  }, []);
   const countStateReducer = (
     state: { count: number },
     action: { type: string }
