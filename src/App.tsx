@@ -28,6 +28,7 @@ import ForwardRef from "./pages/forwardref";
 import LazyComponent from "./pages/lazy";
 import TestHook from "./pages/hookTest";
 import ReduxTestComponent from "./pages/redux";
+// import IfHookComponent from "./pages/ifHook";
 
 const { Header, Content, Footer } = Layout;
 
@@ -35,8 +36,16 @@ const App: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  // const [testBoolean, setTestBoolean] = React.useState(false);
 
   const pages = [
+    // {
+    //   path: "ifhook",
+    //   name: "hook写在逻辑里的问题",
+    //   component: () => (
+    //     <IfHookComponent flag updateBoolean={setTestBoolean(!testBoolean)} />
+    //   ),
+    // },
     {
       path: "/redux",
       name: "redux",
