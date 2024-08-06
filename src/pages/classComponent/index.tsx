@@ -18,6 +18,24 @@ class MyClassComponent extends Component<MyComponentProps, MyComponentState> {
       count: 0,
     };
   }
+  componentWillMount(): void {
+    console.log("component即将Mount");
+  }
+
+  componentDidMount(): void {
+    console.log("component已经Mount");
+  }
+
+  componentWillUnmount(): void {
+    console.log("component即将卸载");
+  }
+
+  componentWillReceiveProps(
+    nextProps: Readonly<MyComponentProps>,
+    nextContext: any
+  ): void {
+    console.log("component即将接收新的props", nextProps, nextContext);
+  }
 
   // 事件处理方法
   handleIncrement = () => {
