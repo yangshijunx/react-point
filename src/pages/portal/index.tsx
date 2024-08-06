@@ -1,6 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
+// 定义模态窗口的样式
 const modalStyle: React.CSSProperties = {
   position: "fixed",
   top: "50%",
@@ -13,13 +14,14 @@ const modalStyle: React.CSSProperties = {
   borderRadius: "5px",
   color: "#000",
 };
+
+// 定义 Modal 组件的 props 类型
 interface ModalProps {
   onCloseModal: () => void;
 }
 
-const Modal = (props: ModalProps) => {
-  console.log(props, "什么内容");
-  const { onCloseModal } = props;
+// 定义 Modal 组件
+const Modal: React.FC<ModalProps> = ({ onCloseModal }) => {
   return ReactDOM.createPortal(
     <div className="modal" style={modalStyle}>
       <div className="modal-content">这是里面的内容</div>
@@ -29,11 +31,14 @@ const Modal = (props: ModalProps) => {
   );
 };
 
-const Portal = () => {
+// 定义 Portal 组件
+const Portal: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
+
   const openModal = () => {
     setOpen(true);
   };
+
   const closeModal = () => {
     setOpen(false);
   };
