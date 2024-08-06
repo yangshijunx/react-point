@@ -30,6 +30,7 @@ import TestHook from "./pages/hookTest";
 import ReduxTestComponent from "./pages/redux";
 // import IfHookComponent from "./pages/ifHook";
 import HookLifeCircle from "./pages/hookLifeCircle";
+import Portal from "./pages/portal";
 
 const { Header, Content, Footer } = Layout;
 
@@ -40,6 +41,11 @@ const App: React.FC = () => {
   // const [testBoolean, setTestBoolean] = React.useState(false);
 
   const pages = [
+    {
+      path: "/portal",
+      name: "portal",
+      component: () => <Portal />,
+    },
     {
       path: "hookLifeCircle",
       name: "hook生命周期",
