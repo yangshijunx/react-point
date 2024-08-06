@@ -28,6 +28,15 @@ class Father extends React.Component<Props> {
   }
 }
 
+const NewSon: React.FC<{ ref: object }> = (props) => {
+  console.log("NewSon render", props);
+  return (
+    <div>
+      <h1>new Son</h1>
+    </div>
+  );
+};
+
 /**
  * 在 React 中，如果没有使用 forwardRef，
  * 函数组件无法直接处理 ref 属性，因为 ref 是一个特殊的属性，
@@ -54,6 +63,7 @@ const NewFather = React.forwardRef((props, ref) => (
 
 const ForwardRef = () => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const newSonRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     console.log("inputRef", inputRef.current);
   });
@@ -61,6 +71,13 @@ const ForwardRef = () => {
     <>
       <h1>ForwardRef</h1>
       <NewFather ref={inputRef} />
+      <h1>看看ref对不对</h1>
+      {/* 
+        强行给函数组件使用ref就会报错
+        console.js:288 Warning: Function components cannot be given refs. 
+        Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+      */}
+      <NewSon ref={newSonRef} />
     </>
   );
 };
