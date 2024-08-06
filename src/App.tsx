@@ -29,6 +29,7 @@ import LazyComponent from "./pages/lazy";
 import TestHook from "./pages/hookTest";
 import ReduxTestComponent from "./pages/redux";
 // import IfHookComponent from "./pages/ifHook";
+import HookLifeCircle from "./pages/hookLifeCircle";
 
 const { Header, Content, Footer } = Layout;
 
@@ -39,6 +40,11 @@ const App: React.FC = () => {
   // const [testBoolean, setTestBoolean] = React.useState(false);
 
   const pages = [
+    {
+      path: "hookLifeCircle",
+      name: "hook生命周期",
+      component: () => <HookLifeCircle />,
+    },
     // {
     //   path: "ifhook",
     //   name: "hook写在逻辑里的问题",
