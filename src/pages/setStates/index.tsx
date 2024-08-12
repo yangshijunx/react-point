@@ -10,9 +10,9 @@ const SetState = () => {
   const [person, setPerson] = useState({ name: "zhangsan" });
   useEffect(() => {
     // 实际上相当于 在更新阶段 这里并不会再次执行
-    setInterval(() => {
-      console.log("count 每秒加1", count);
-    }, 1000);
+    // setInterval(() => {
+    //   console.log("count 每秒加1", count);
+    // }, 1000);
   }, []);
   const countStateReducer = (
     state: { count: number },
@@ -107,17 +107,21 @@ const SetState = () => {
       <Button
         type="primary"
         onClick={() => {
+          console.log("count", count);
+          console.log("打印flushSync前count", count);
           flushSync(() => {
-            setCount(count + 2);
-            setCount(count + 1);
-            setCount(count + 2);
+            setCount(count + 3);
+            console.log("打印flushSync后的coun, 我想看执行顺序", count);
           });
           flushSync(() => {
-            setCount(count + 2);
-            setCount(count + 1);
-            // 只保留这个
             setCount(count + 1);
           });
+          // flushSync(() => {
+          //   setCount(count + 2);
+          //   setCount(count + 1);
+          //   // 只保留这个
+          //   setCount(count + 1);
+          // });
         }}
       >
         flushSync不要批量处理+3
