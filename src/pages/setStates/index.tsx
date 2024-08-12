@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import { useEffect, useReducer, useState } from "react";
+import { Component, ReactNode, useEffect, useReducer, useState } from "react";
 import { flushSync } from "react-dom";
 
 const SetState = () => {
@@ -56,6 +56,44 @@ const SetState = () => {
       console.log("setTimeout after", count);
     }, 0);
   };
+
+  class TestSetState extends Component {
+    state: Readonly<{ count: number }> = {
+      count: 1,
+    };
+    render(): ReactNode {
+      return (
+        <div>
+          <p>这是类组件的: {this.state.count}</p>
+          <Button
+            type="primary"
+            onClick={() => {
+              console.log("点击修改类组件state", count);
+              this.setState({ count: 3 }, () => {
+                console.log("点击修改类组件state回调", this.state.count);
+              });
+              flushSync(() => {
+                console.log("点击修改类组件stateflushSync", count);
+                this.setState(
+                  {
+                    count: 2,
+                  },
+                  () => {
+                    console.log(
+                      "点击修改类组件stateflushSyn回调",
+                      this.state.count
+                    );
+                  }
+                );
+              });
+            }}
+          >
+            修改类组件state
+          </Button>
+        </div>
+      );
+    }
+  }
 
   return (
     <>
@@ -130,6 +168,7 @@ const SetState = () => {
       <Button type="primary" onClick={testSetTimeout}>
         setTimeout是同步还是异步
       </Button>
+      <TestSetState />
     </>
   );
 };
